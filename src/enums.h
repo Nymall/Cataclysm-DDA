@@ -125,6 +125,7 @@ enum art_effect_passive : int {
     AEP_RESIST_ELECTRICITY, // Protection from electricity
     AEP_CARRY_MORE, // Increases carrying capacity by 200
     AEP_SAP_LIFE, // Killing non-zombie monsters may heal you
+    AEP_FUN, // Slight passive morale
     // Splits good from bad
     AEP_SPLIT,
     // Bad
@@ -364,10 +365,5 @@ struct sphere
     explicit sphere( const tripoint &center ) : radius( 1 ), center( center ) {}
     explicit sphere( const tripoint &center, int radius ) : radius( radius ), center( center ) {}
 };
-
-constexpr inline unsigned long mfb( const int v )
-{
-    return 1 << v;
-}
 
 #endif

@@ -25,8 +25,7 @@ enum bionic_tab_mode {
 enum bionic_menu_mode {
     ACTIVATING,
     EXAMINING,
-    REASSIGNING,
-    REMOVING
+    REASSIGNING
 };
 } // namespace
 
@@ -65,11 +64,9 @@ void draw_bionics_titlebar( const catacurses::window &window, player *p, bionic_
     if( mode == REASSIGNING ) {
         desc = _( "Reassigning.\nSelect a bionic to reassign or press SPACE to cancel." );
     } else if( mode == ACTIVATING ) {
-        desc = _( "<color_green>Activating</color>  <color_yellow>!</color> to examine, <color_yellow>-</color> to remove, <color_yellow>=</color> to reassign, <color_yellow>TAB</color> to switch tabs." );
-    } else if( mode == REMOVING ) {
-        desc = _( "<color_red>Removing</color>  <color_yellow>!</color> to activate, <color_yellow>-</color> to remove, <color_yellow>=</color> to reassign, <color_yellow>TAB</color> to switch tabs." );
+        desc = _( "<color_green>Activating</color>  <color_yellow>!</color> to examine, <color_yellow>=</color> to reassign, <color_yellow>TAB</color> to switch tabs." );
     } else if( mode == EXAMINING ) {
-        desc = _( "<color_light_blue>Examining</color>  <color_yellow>!</color> to activate, <color_yellow>-</color> to remove, <color_yellow>=</color> to reassign, <color_yellow>TAB</color> to switch tabs." );
+        desc = _( "<color_light_blue>Examining</color>  <color_yellow>!</color> to activate, <color_yellow>=</color> to reassign, <color_yellow>TAB</color> to switch tabs." );
     }
     fold_and_print( window, 0, 1, pwr_str_pos, c_white, desc );
 
@@ -357,7 +354,6 @@ void player::power_bionics()
     ctxt.register_action( "ANY_INPUT" );
     ctxt.register_action( "TOGGLE_EXAMINE" );
     ctxt.register_action( "REASSIGN" );
-    ctxt.register_action( "REMOVE" );
     ctxt.register_action( "NEXT_TAB" );
     ctxt.register_action( "PREV_TAB" );
     ctxt.register_action( "CONFIRM" );
@@ -403,8 +399,7 @@ void player::power_bionics()
 
             int max_width = 0;
             std::vector<std::string>bps;
-            for( int i = 0; i < num_bp; ++i ) {
-                const body_part bp = bp_aBodyPart[i];
+            for( const body_part bp : all_body_parts ) {
                 const int total = get_total_bionics_slots( bp );
                 const std::string s = string_format( "%s: %d/%d",
                                                      body_part_name_as_heading( bp, 1 ).c_str(),
@@ -414,7 +409,7 @@ void player::power_bionics()
             }
             const int pos_x = WIDTH - 2 - max_width;
             if( g->u.has_trait( trait_id( "DEBUG_CBM_SLOTS" ) ) ) {
-                for( int i = 0; i < num_bp; ++i ) {
+                for( size_t i = 0; i < bps.size(); ++i ) {
                     mvwprintz( wBio, i + list_start_y, pos_x, c_light_gray, bps[i] );
                 }
             }
@@ -562,9 +557,6 @@ void player::power_bionics()
         } else if( action == "TOGGLE_EXAMINE" ) { // switches between activation and examination
             menu_mode = menu_mode == ACTIVATING ? EXAMINING : ACTIVATING;
             redraw = true;
-        } else if( action == "REMOVE" ) {
-            menu_mode = REMOVING;
-            redraw = true;
         } else if( action == "HELP_KEYBINDINGS" ) {
             redraw = true;
         } else if( action == "CONFIRM" ) {
@@ -608,11 +600,6 @@ void player::power_bionics()
             bio_last = tmp;
             const bionic_id &bio_id = tmp->id;
             const bionic_data &bio_data = bio_id.obj();
-            if( menu_mode == REMOVING ) {
-                recalc = uninstall_bionic( bio_id );
-                redraw = true;
-                continue;
-            }
             if( menu_mode == ACTIVATING ) {
                 if( bio_data.activated ) {
                     int b = tmp - &( *my_bionics )[0];

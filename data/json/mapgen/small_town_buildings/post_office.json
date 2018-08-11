@@ -62,7 +62,7 @@
         "&": "f_trashcan",
         "S": "f_sink",
         "T": "f_toilet",
-        "X": "f_safe_c",
+        "X": "f_safe_l",
         "^": "f_indoor_plant",
         "b": "f_bench",
         "c": "f_chair",
@@ -71,9 +71,7 @@
         "v": "f_vending_c",
         "{": "f_locker"
       },
-      "toilets": {
-        "T": {}
-      },
+      "toilets": { "T": {} },
       "place_items": [
         { "item": "file_room", "x": 4, "y": 17, "chance": 30 },
         { "item": "file_room", "x": 2, "y": [ 16, 17 ], "chance": 30 },

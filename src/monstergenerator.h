@@ -21,7 +21,7 @@ enum m_size : int;
 class monster;
 class Creature;
 struct dealt_projectile_attack;
-using mon_action_death  = void ( * )( monster * );
+using mon_action_death  = void ( * )( monster & );
 using mon_action_attack = bool ( * )( monster * );
 using mon_action_defend = void ( * )( monster &, Creature *, dealt_projectile_attack const * );
 using mtype_id = string_id<mtype>;
@@ -76,7 +76,7 @@ class MonsterGenerator
         friend class mattack_actor;
 
     protected:
-        m_flag m_flag_from_string( std::string flag ) const;
+        m_flag m_flag_from_string( const std::string &flag ) const;
     private:
         MonsterGenerator();
 

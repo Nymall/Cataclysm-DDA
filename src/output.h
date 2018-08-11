@@ -417,14 +417,14 @@ input_event draw_item_info( const catacurses::window &win, const std::string sIt
                             std::vector<iteminfo> &vItemDisplay, std::vector<iteminfo> &vItemCompare,
                             int &selected, const bool without_getch = false, const bool without_border = false,
                             const bool handle_scrolling = false, const bool scrollbar_left = true,
-                            const bool use_full_win = false );
+                            const bool use_full_win = false, const unsigned int padding = 1 );
 
 input_event draw_item_info( const int iLeft, int iWidth, const int iTop, const int iHeight,
                             const std::string sItemName, const std::string sTypeName,
                             std::vector<iteminfo> &vItemDisplay, std::vector<iteminfo> &vItemCompare,
                             int &selected, const bool without_getch = false, const bool without_border = false,
                             const bool handle_scrolling = false, const bool scrollbar_left = true,
-                            const bool use_full_win = false );
+                            const bool use_full_win = false, const unsigned int padding = 1 );
 
 enum class item_filter_type : int {
     FIRST = 1, // used for indexing into tables
@@ -452,12 +452,6 @@ std::string trim( const std::string &s );
 std::string trim_punctuation_marks( const std::string &s );
 // Converts the string to upper case.
 std::string to_upper_case( const std::string &s );
-
-/**
- * Wrapper for calling @ref vsprintf - see there for documentation. Try to avoid it as it's
- * not type safe and may easily lead to undefined behavior - use @ref string_format instead.
- */
-std::string vstring_format( const char *pattern, va_list argptr );
 
 // TODO: move these elsewhere
 // string manipulations.
@@ -585,7 +579,7 @@ std::string get_labeled_bar( const double val, const int width, const std::strin
 
 void draw_tab( const catacurses::window &w, int iOffsetX, std::string sText, bool bSelected );
 void draw_subtab( const catacurses::window &w, int iOffsetX, std::string sText, bool bSelected,
-                  bool bDecorate = true );
+                  bool bDecorate = true, bool bDisabled = false );
 void draw_scrollbar( const catacurses::window &window, const int iCurrentLine,
                      const int iContentHeight, const int iNumLines, const int iOffsetY = 0, const int iOffsetX = 0,
                      nc_color bar_color = c_white, const bool bDoNotScrollToEnd = false );
@@ -675,6 +669,11 @@ int ci_find_substr( const std::string &str1, const std::string &str2,
 std::string format_volume( const units::volume &volume );
 std::string format_volume( const units::volume &volume, int width, bool *out_truncated,
                            double *out_value );
+
+inline const std::string format_money( unsigned long cents )
+{
+    return string_format( _( "$%.2f" ), cents / 100.0 );
+}
 
 /** Get the width in font glyphs of the drawing screen.
  *
