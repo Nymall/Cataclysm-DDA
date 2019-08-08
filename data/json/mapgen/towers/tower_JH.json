@@ -219,7 +219,7 @@
         { "item": "art", "x": [ 16, 16 ], "y": [ 4, 4 ], "chance": 55, "repeat": [ 1, 2 ] },
         { "item": "medieval", "x": [ 15, 15 ], "y": [ 4, 4 ], "chance": 35, "repeat": [ 1, 2 ] },
         { "item": "chem_home", "x": [ 11, 14 ], "y": [ 4, 4 ], "chance": 85, "repeat": [ 7, 12 ] },
-        { "item": "bionics_common", "x": [ 10, 10 ], "y": [ 7, 7 ], "chance": 75, "repeat": [ 1, 4 ] },
+        { "item": "bionics_common", "x": [ 10, 10 ], "y": [ 7, 7 ], "chance": 25, "repeat": [ 1, 4 ] },
         { "item": "mil_food_nodrugs", "x": [ 10, 10 ], "y": [ 5, 6 ], "chance": 75, "repeat": [ 3, 9 ] },
         { "item": "weapons", "x": [ 10, 10 ], "y": [ 8, 9 ], "chance": 75, "repeat": [ 2, 6 ] },
         { "item": "farming_seeds", "x": [ 11, 12 ], "y": [ 10, 10 ], "chance": 75, "repeat": [ 5, 20 ] },
@@ -267,7 +267,40 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 2, "chance": 50 }
+        { "item": "office", "x": 7, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 7, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 7, "y": 17, "chance": 50 },
+		{ "item": "office", "x": 6, "y": 17, "chance": 50 },
+		{ "item": "office", "x": 8, "y": 17, "chance": 50 },
+		{ "item": "office", "x": 9, "y": 17, "chance": 50 },
+		{ "item": "office", "x": 7, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 6, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 8, "y": 21, "chance": 50 },
+		{ "item": "office", "x": 10, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 11, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 21, "chance": 50 },
+		{ "item": "office", "x": 7, "y": 24, "chance": 50 },
+		{ "item": "office", "x": 6, "y": 24, "chance": 50 },
+		{ "item": "office", "x": 8, "y": 25, "chance": 50 },
+		{ "item": "office", "x": 10, "y": 24, "chance": 50 },
+		{ "item": "office", "x": 11, "y": 24, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 25, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 23, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 22, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 22, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 17, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 17, "y": 16, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 16, "chance": 50 },
+		{ "item": "office", "x": 17, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 17, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 18, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 23, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 23, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 24, "y": 9, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
@@ -307,13 +340,16 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "guns_pistol_common", "x": 6 , "y": 20, "chance": 40, "ammo": 90, "magazine": 100  },
-        { "item": "magazines", "x": 6, "y": 12, "chance": 80 },
-        { "item": "jewelry_front", "x": [ 14, 19 ], "y": [ 20, 20 ], "chance": 75 },
-        { "item": "jewelry_front", "x": [ 10, 10 ], "y": [ 22, 23 ], "chance": 75 },
-        { "item": "jewelry_front", "x": [ 21, 21 ], "y": [ 20, 21 ], "chance": 75 },
-        { "item": "trash", "x": 10, "y": 17, "chance": 50 },
-        { "item": "trash", "x": 10, "y": 20, "chance": 50 }
+        { "item": "office", "x": 11, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 14, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 15, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 17, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 18, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 7, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 7, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
@@ -353,13 +389,22 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 20, "chance": 50 }
+        { "item": "office", "x": 5, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 4, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 5, "y": 8, "chance": 50 },
+		{ "item": "office", "x": 5, "y": 7, "chance": 50 },
+		{ "item": "office", "x": 4, "y": 6, "chance": 50 },
+		{ "item": "office", "x": 6, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 7, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 8, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 4, "chance": 50 },
+		{ "item": "office", "x": 13, "y": 5, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
   },
   {
-    "//": "Office Tower",
+    "//": "Misc offices",
     "type": "mapgen",
     "method": "json",
     "om_terrain": [ "tower_lobby_jh_nw2" ],
@@ -393,7 +438,24 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 2, "chance": 50 }
+        { "item": "office", "x": 12, "y": 8, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 15, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 13, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 14, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 14, "chance": 50 },
+		{ "item": "office", "x": 17, "y": 14, "chance": 50 },
+		{ "item": "office", "x": 16, "y": 13, "chance": 50 },
+		{ "item": "office", "x": 14, "y": 13, "chance": 50 },
+		{ "item": "office", "x": 13, "y": 14, "chance": 50 },
+		{ "item": "office", "x": 11, "y": 14, "chance": 50 },
+		{ "item": "office", "x": 10, "y": 13, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 16, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 18, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
@@ -433,7 +495,8 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 2, "chance": 50 }
+        { "item": "office", "x": 5, "y": 18, "chance": 50 },
+		{ "item": "office", "x": 9, "y": 18, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
@@ -473,7 +536,24 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 20, "chance": 50 }
+        { "item": "office", "x": 2, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 3, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 5, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 6, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 8, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 9, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 11, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 14, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 14, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 15, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 16, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 21, "y": 7, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 7, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
@@ -513,7 +593,14 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 20, "chance": 50 }
+        { "item": "office", "x": 16, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 16, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 20, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 24, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 24, "y": 9, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
@@ -593,7 +680,18 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 2, "chance": 50 }
+        { "item": "office", "x": 5, "y": 17, "chance": 50 },
+		{ "item": "office", "x": 4, "y": 18, "chance": 50 },
+		{ "item": "office", "x": 4, "y": 19, "chance": 50 },
+		{ "item": "office", "x": 5, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 8, "y": 17, "chance": 50 },
+		{ "item": "office", "x": 9, "y": 18, "chance": 50 },
+		{ "item": "office", "x": 9, "y": 19, "chance": 50 },
+		{ "item": "office", "x": 8, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 11, "y": 17, "chance": 50 },
+		{ "item": "office", "x": 10, "y": 18, "chance": 50 },
+		{ "item": "office", "x": 10, "y": 19, "chance": 50 },
+		{ "item": "office", "x": 11, "y": 20, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
