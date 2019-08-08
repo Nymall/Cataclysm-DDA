@@ -731,13 +731,7 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "guns_pistol_common", "x": 6 , "y": 20, "chance": 40, "ammo": 90, "magazine": 100  },
-        { "item": "magazines", "x": 6, "y": 12, "chance": 80 },
-        { "item": "jewelry_front", "x": [ 14, 19 ], "y": [ 20, 20 ], "chance": 75 },
-        { "item": "jewelry_front", "x": [ 10, 10 ], "y": [ 22, 23 ], "chance": 75 },
-        { "item": "jewelry_front", "x": [ 21, 21 ], "y": [ 20, 21 ], "chance": 75 },
-        { "item": "trash", "x": 10, "y": 17, "chance": 50 },
-        { "item": "trash", "x": 10, "y": 20, "chance": 50 }
+        { "item": "office", "x": 5, "y": 20, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
@@ -777,7 +771,12 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 20, "chance": 50 }
+        { "item": "office", "x": 4, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 4, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 5, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 6, "y": 12, "chance": 50 },
+		{ "item": "office", "x": 7, "y": 11, "chance": 50 },
+		{ "item": "office", "x": 7, "y": 10, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
@@ -817,13 +816,16 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 2, "chance": 50 }
+        { "item": "office", "x": 11, "y": 21, "chance": 50 },
+		{ "item": "office", "x": 11, "y": 22, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 23, "chance": 50 },
+		{ "item": "office", "x": 13, "y": 23, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
   },
   {
-    "//": "Side stores and stairs up.",
+    "//": " ",
     "type": "mapgen",
     "method": "json",
     "om_terrain": [ "tower_lobby_jh_ne4" ],
@@ -857,7 +859,22 @@
       ],
       "palettes": [ "tower_jh_palette" ],
       "place_items": [
-        { "item": "trash", "x": 10, "y": 2, "chance": 50 }
+        { "item": "office", "x": 11, "y": 8, "chance": 50 },
+		{ "item": "office", "x": 11, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 7, "chance": 50 },
+		{ "item": "office", "x": 12, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 13, "y": 7, "chance": 50 },
+		{ "item": "office", "x": 13, "y": 10, "chance": 50 },
+		{ "item": "office", "x": 14, "y": 8, "chance": 50 },
+		{ "item": "office", "x": 14, "y": 9, "chance": 50 },
+		{ "item": "office", "x": 17, "y": 19, "chance": 50 },
+		{ "item": "office", "x": 18, "y": 19, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 20, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 21, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 22, "chance": 50 },
+		{ "item": "office", "x": 19, "y": 23, "chance": 50 },
+		{ "item": "office", "x": 17, "y": 24, "chance": 50 },
+		{ "item": "office", "x": 18, "y": 24, "chance": 50 }
       ],
       "place_monsters": [ { "monster": "GROUP_MALL", "x": [ 2, 23 ], "y": [ 2, 23 ], "density": 1 } ]
     }
