@@ -1,14 +1,15 @@
+#include "catch/catch.hpp"
+
 #include <algorithm> // std::find
 #include <cstdio> // log redirection
-#include <cstdlib> // abort
 #include <functional> // std::greater
+#include <initializer_list>
+#include <iterator>
 #include <utility> // std::move
 #include <vector> // range-insert testing
 
-#include "catch/catch.hpp"
 #include "colony_list_test_helpers.h"
 #include "list.h"
-
 
 TEST_CASE( "list basics", "[list]" )
 {
@@ -125,7 +126,6 @@ TEST_CASE( "list basics", "[list]" )
             CHECK( std::distance( test_list.rbegin(), r_iterator2 ) == 52 );
         }
 
-
         SECTION( "multiple iteration" ) {
             int count = 0;
             int sum = 0;
@@ -196,7 +196,7 @@ TEST_CASE( "list basics", "[list]" )
             }
 
             CHECK( count == 200 );
-            CHECK( test_list.size() == 0 );
+            CHECK( test_list.empty() );
         }
 
         SECTION( "negative iteration" ) {
@@ -234,6 +234,7 @@ TEST_CASE( "list basics", "[list]" )
 
         SECTION( "swap() and max_size()" ) {
             cata::list<int *> test_list_2;
+            // NOLINTNEXTLINE(bugprone-use-after-move)
             test_list_2 = test_list;
 
             CHECK( test_list_2.size() == 400 );
@@ -297,11 +298,11 @@ TEST_CASE( "list insert and erase", "[list]" )
 
         } while( !test_list.empty() );
 
-        CHECK( test_list.size() == 0 );
+        CHECK( test_list.empty() );
     }
 
     SECTION( "erase randomly till half empty" ) {
-        int count = 0;
+        size_t count = 0;
         do {
             for( cata::list<int>::iterator it = test_list.begin(); it != test_list.end(); ) {
                 if( ( xor_rand() & 7 ) == 0 ) {
@@ -316,7 +317,7 @@ TEST_CASE( "list insert and erase", "[list]" )
 
         CHECK( test_list.size() == 500000 - count );
 
-        for( int i = 0; i < count; i++ ) {
+        for( size_t i = 0; i < count; i++ ) {
             test_list.push_front( 1 );
         }
 
@@ -432,7 +433,7 @@ TEST_CASE( "list insert and erase", "[list]" )
         CHECK( prev_capacity != test_list.capacity() );
         CHECK( test_list.capacity() == 1000 );
 
-        int count = 0;
+        size_t count = 0;
         for( int loop1 = 0; loop1 < 50000; loop1++ ) {
             for( int loop = 0; loop < 10; loop++ ) {
                 if( ( xor_rand() & 7 ) == 0 ) {
@@ -547,7 +548,6 @@ TEST_CASE( "list splice", "[list]" )
             test_list_2.push_front( i );
         }
 
-
         test_list.splice( test_list.begin(), test_list_2 );
 
         int count = 0;
@@ -584,7 +584,7 @@ TEST_CASE( "list sort and reverse", "[list]" )
     }
 
     SECTION( "greater than (predicate)" ) {
-        test_list.sort( std::greater<int>() );
+        test_list.sort( std::greater<>() );
 
         bool passed = true;
         int previous = 65535;
@@ -951,6 +951,7 @@ TEST_CASE( "list emplace, move, copy, and reverse iterate", "[list]" )
         }
 
         CHECK( passed );
+        // NOLINTNEXTLINE(bugprone-use-after-move)
         CHECK( test_list.empty() );
     }
 
@@ -974,6 +975,7 @@ TEST_CASE( "list emplace, move, copy, and reverse iterate", "[list]" )
         }
 
         CHECK( passed );
+        // NOLINTNEXTLINE(bugprone-use-after-move)
         CHECK( test_list_2.empty() );
     }
 
@@ -1041,7 +1043,6 @@ TEST_CASE( "list reorder", "[list]" )
     SECTION( "single reorder" ) {
         CHECK( *it1 == 25 );
     }
-
 
     it1 = test_list.begin();
     std::advance( it1, 152 );

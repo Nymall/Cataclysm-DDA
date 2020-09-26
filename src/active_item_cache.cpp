@@ -13,13 +13,14 @@ void active_item_cache::remove( const item *it )
         return !target || target == it;
     } );
     if( it->can_revive() ) {
-        special_items[ "corpse" ].remove_if( [it]( const item_reference & active_item ) {
+        special_items[ special_item_type::corpse ].remove_if( [it]( const item_reference & active_item ) {
             item *const target = active_item.item_ref.get();
             return !target || target == it;
         } );
     }
     if( it->get_use( "explosion" ) ) {
-        special_items[ "explosives" ].remove_if( [it]( const item_reference & active_item ) {
+        special_items[ special_item_type::explosive ].remove_if( [it]( const item_reference &
+        active_item ) {
             item *const target = active_item.item_ref.get();
             return !target || target == it;
         } );
@@ -37,17 +38,19 @@ void active_item_cache::add( item &it, point location )
         return;
     }
     if( it.can_revive() ) {
-        special_items[ "corpse" ].push_back( item_reference{ location, it.get_safe_reference() } );
+        special_items[ special_item_type::corpse ].push_back( item_reference{ location, it.get_safe_reference() } );
     }
     if( it.get_use( "explosion" ) ) {
-        special_items[ "explosives" ].push_back( item_reference{ location, it.get_safe_reference() } );
+        special_items[ special_item_type::explosive ].push_back( item_reference{ location, it.get_safe_reference() } );
     }
     target_list.push_back( item_reference{ location, it.get_safe_reference() } );
 }
 
 bool active_item_cache::empty() const
 {
-    return active_items.empty();
+    return std::all_of( active_items.begin(), active_items.end(), []( const auto & active_queue ) {
+        return active_queue.second.empty();
+    } );
 }
 
 std::vector<item_reference> active_item_cache::get()
@@ -90,7 +93,7 @@ std::vector<item_reference> active_item_cache::get_for_processing()
     return items_to_process;
 }
 
-std::vector<item_reference> active_item_cache::get_special( std::string type )
+std::vector<item_reference> active_item_cache::get_special( special_item_type type )
 {
     std::vector<item_reference> matching_items;
     for( const item_reference &it : special_items[type] ) {
@@ -101,7 +104,7 @@ std::vector<item_reference> active_item_cache::get_special( std::string type )
 
 void active_item_cache::subtract_locations( const point &delta )
 {
-    for( auto &pair : active_items ) {
+    for( std::pair<const int, std::list<item_reference>> &pair : active_items ) {
         for( item_reference &ir : pair.second ) {
             ir.location -= delta;
         }
@@ -110,7 +113,7 @@ void active_item_cache::subtract_locations( const point &delta )
 
 void active_item_cache::rotate_locations( int turns, const point &dim )
 {
-    for( auto &pair : active_items ) {
+    for( std::pair<const int, std::list<item_reference>> &pair : active_items ) {
         for( item_reference &ir : pair.second ) {
             ir.location = ir.location.rotate( turns, dim );
         }
